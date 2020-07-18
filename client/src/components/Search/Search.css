@@ -10,6 +10,11 @@
     border: 3px solid #dfe6e9;
 }
 
+.buttonContainer {
+    display: flex;
+    justify-content: right;
+}
+
 #bookValue {
     color: black;
 }

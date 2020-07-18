@@ -12,7 +12,9 @@ const SearchBar = () => {
                         <Form>
                             <Label for="Book">Book</Label>
                             <Input type="Book" name="Book" placeholder="Search Book" id="bookValue"/>
-                            <Button className="mt-3">Search</Button>
+                            <div className="buttonContainer">
+                                <Button className="mt-3">Search</Button>
+                            </div>
                         </Form>
                     </div>
                 </Col>
