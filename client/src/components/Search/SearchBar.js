@@ -12,9 +12,18 @@ const SearchBar = () => {
             let book = [];
             axios.get(`https://www.googleapis.com/books/v1/volumes?q=${search}`)
             .then(res => {
-                book = res.data.items.map(x => x.volumeInfo.title)
+                book = res.data.items.map(obj => ({
+                    title: obj.volumeInfo.title, 
+                    authors: obj.volumeInfo.authors,
+                    description: obj.volumeInfo.description,
+                    image: obj.volumeInfo.imageLinks,
+                    link: obj.volumeInfo.previewLink
+                }))
                 //book.push(...res.data.items)
                 console.log(book)
+            })
+            .catch(error => {
+                console.log(error)
             })
         }
     }, [search])
