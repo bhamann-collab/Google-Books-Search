@@ -22,3 +22,21 @@
 #bookValue {
     color: black;
 }
+
+.autoContainer {
+    position: absolute;
+    background-color: #dfe6e9;
+    color: black;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.option {
+    overflow: hidden;
+}
+
+.option:hover {
+    background-color: black;
+    color: #dfe6e9;
+    cursor: pointer;
+}

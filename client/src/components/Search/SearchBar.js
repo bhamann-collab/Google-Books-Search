@@ -19,17 +19,24 @@ const SearchBar = () => {
                     image: obj.volumeInfo.imageLinks,
                     link: obj.volumeInfo.previewLink
                 }))
-                //book.push(...res.data.items)
-                console.log(book)
+                setOptions(book)
             })
             .catch(error => {
                 console.log(error)
             })
+        } else {
+            setOptions([])
+            setDisplay(false)
         }
     }, [search])
 
     const inputChange = (e) => {
         setSearch(e.currentTarget.value);
+    }
+
+    const setBook = book => {
+        setSearch(book)
+        setDisplay(false)
     }
 
     return (
@@ -41,7 +48,16 @@ const SearchBar = () => {
                         <br />
                         <Form>
                             <Label for="Book">Book</Label>
-                            <Input type="Book" name="Book" onChange={inputChange} placeholder="Search Book" id="bookValue"/>
+                            <Input type="Book" onClick={() => setDisplay(!display)} name="Book" onChange={inputChange} placeholder="Search Book" id="bookValue" value={search}/>
+                            {display && (
+                                <div className="autoContainer">
+                                    {options.map((v, i) => {
+                                        return <div onClick={() => setBook(v.title)} className="option" key={i}>
+                                            <span>{v.title}</span>
+                                        </div>
+                                    })}
+                                </div>
+                            )}
                             <div className="buttonContainer">
                                 <Button className="mt-3">Search</Button>
                             </div>
