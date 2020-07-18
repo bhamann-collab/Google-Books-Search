@@ -1,3 +1,15 @@
 .searchContainer {
     border: 3px solid #dfe6e9;
 }
+
+.searchBarContainer {
+    border: 3px solid #dfe6e9;
+}
+
+.bookResultListContainer {
+    border: 3px solid #dfe6e9;
+}
+
+#bookValue {
+    color: black;
+}

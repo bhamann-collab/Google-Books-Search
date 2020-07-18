@@ -1,12 +1,16 @@
 import React from 'react'
 import SearchTitle from './SearchTitle'
+import SearchBar from './SearchBar'
+import BookResultList from './BookResultList'
 
 const Search = () => {
     return (
         <div>
             <SearchTitle />
-            {/* <SearchBar />
-            <BookResultList /> */}
+            <br />
+            <SearchBar />
+            <br />
+            <BookResultList />
         </div>
     )
 }
