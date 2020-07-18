@@ -1,5 +1,6 @@
 import React from 'react';
-import {Container, Row, Col} from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
+import BookResult from './BookResult';
 
 const BookResultList = () => {
     return (
@@ -8,7 +9,8 @@ const BookResultList = () => {
                 <Col>
                     <div className="bookResultListContainer p-3">
                         <h3>Results</h3>
-                    </div>        
+                        <BookResult />   
+                    </div>     
                 </Col>
             </Row>
         </Container>
