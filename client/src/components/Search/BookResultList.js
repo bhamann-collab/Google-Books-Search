@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { BookContext } from './Search'
 import BookResult from './BookResult';
 
 const BookResultList = () => {
+    const bookContext = useContext(BookContext)
+
     return (
         <Container>
             <Row>
                 <Col>
                     <div className="bookResultListContainer p-3">
-                        <h3>Results</h3>
-                        <BookResult />   
+                        <h3 onClick={() => bookContext.booksDispatch('test')}>Results</h3>
+                        <BookResult /> 
+                        <p>{bookContext.booksState}</p>
                     </div>     
                 </Col>
             </Row>

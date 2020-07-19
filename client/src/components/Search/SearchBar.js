@@ -1,11 +1,14 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Container, Row, Col, Form, Label, Input, Button } from 'reactstrap';
+import { BookContext } from './Search'
 import axios from 'axios'
 
 const SearchBar = () => {
+    const bookContext = useContext(BookContext)
+
     const [display, setDisplay] = useState(false);
     const [options, setOptions] = useState([]);
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         if (search) {
@@ -39,6 +42,11 @@ const SearchBar = () => {
         setDisplay(false)
     }
 
+    const handleSubmit = e => {
+        e.preventDefault()
+        bookContext.booksDispatch({type: 'book-test', payload: JSON.stringify(options)})
+    }
+
     return (
         <Container>
             <Row>
@@ -46,7 +54,7 @@ const SearchBar = () => {
                     <div className="searchBarContainer p-3">
                         <h3>Book Search</h3>
                         <br />
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Label for="Book">Book</Label>
                             <Input type="Book" onClick={() => setDisplay(!display)} name="Book" onChange={inputChange} placeholder="Search Book" id="bookValue" value={search}/>
                             {display && (
