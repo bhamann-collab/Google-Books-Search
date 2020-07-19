@@ -19,7 +19,7 @@ const SearchBar = () => {
                     title: obj.volumeInfo.title, 
                     authors: obj.volumeInfo.authors,
                     description: obj.volumeInfo.description,
-                    image: obj.volumeInfo.imageLinks,
+                    image: obj.volumeInfo.imageLinks.thumbnail,
                     link: obj.volumeInfo.previewLink
                 }))
                 setOptions(book)
