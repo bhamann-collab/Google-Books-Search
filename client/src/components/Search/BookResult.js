@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
 
-const BookResult = () => {
+const BookResult = (props) => {
     return (
         <Container fluid>
             <Row>
@@ -10,9 +10,8 @@ const BookResult = () => {
                         <Container fluid>
                             <Row>
                                 <Col xs="3">
-                                    <h3>Harry Potter's Bookshelf</h3>
-                                    <p>The Great Books behing the Hogwarts Adventures</p>
-                                    <p>Written By John Granger</p>
+                                    <h3>{props.title}</h3>
+                                    <p>Written By {props.authors}</p>
                                 </Col>
                                 <Col xs="6"></Col>
                                 <Col xs="3">

@@ -44,7 +44,7 @@ const SearchBar = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        bookContext.booksDispatch({type: 'book-test', payload: JSON.stringify(options)})
+        bookContext.booksDispatch({type: 'book-test', payload: options})
     }
 
     return (
