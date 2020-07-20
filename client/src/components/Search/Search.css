@@ -45,3 +45,13 @@
     display: flex;
     justify-content: center;
 }
+
+.centerImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.textBold {
+    font-weight: 700;
+}
