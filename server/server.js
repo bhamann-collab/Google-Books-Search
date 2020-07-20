@@ -12,6 +12,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/books', {
 });
 //---------------------------------
 
+//Using routes
+app.use(require("./routes/api-routes"))
+
 app.listen(PORT, err => {
     if (err) throw err
     console.log(`server started on port: ${PORT}`)
