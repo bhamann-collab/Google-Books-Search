@@ -7,7 +7,10 @@ router.get('/api/books', (req, res) => {
 });
 
 router.post('/api/books', (req, res) => {
-    console.log('post')
+    console.log(req.body)
+    res.end()
+    var book = new Book(req.body)
+    book.save()
 });
 
 router.delete('api/books/:id', (req, res) => {

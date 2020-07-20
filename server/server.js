@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors")
 
 const PORT = process.env.PORT || 5000;
 
@@ -11,6 +12,10 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/books', {
     useNewUrlParser: true, useUnifiedTopology: true
 });
 //---------------------------------
+
+//Middleware
+app.use(cors())
+app.use(express.json())
 
 //Using routes
 app.use(require("./routes/api-routes"))

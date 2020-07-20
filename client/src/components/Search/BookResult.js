@@ -1,7 +1,17 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
+import axios from 'axios'
 
 const BookResult = (props) => {
+
+    const postBook = () => {
+        console.log(props)
+        axios.post(`http://localhost:5000/api/books`, props)
+        .then(res => {
+            console.log(res)
+        })
+    }
+
     return (
         <Container fluid>
             <Row>
@@ -28,7 +38,7 @@ const BookResult = (props) => {
                                 <Col xs="12">
                                     <div className="viewSaveContainer">
                                         <Button href={props.link} className="m-1 btn-lg">View</Button>
-                                        <Button className="m-1 btn-lg">Save</Button>
+                                        <Button onClick={postBook} className="m-1 btn-lg">Save</Button>
                                     </div>
                                 </Col>
                             </Row>

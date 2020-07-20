@@ -9,7 +9,8 @@ const Schema = mongoose.Schema;
 const BookSchema = new Schema({
     title: {
         type: String,
-        default: 'no title'
+        unique: true,
+        required: true
     },
     authors: {
         type: Schema.Types.Mixed,
