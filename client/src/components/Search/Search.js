@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react'
-import SearchTitle from './SearchTitle'
 import SearchBar from './SearchBar'
 import BookResultList from './BookResultList'
 
@@ -24,8 +23,6 @@ const Search = () => {
         <BookContext.Provider
             value={{ booksState: books, booksDispatch: dispatch }}
         >
-            <SearchTitle />
-            <br />
             <SearchBar />
             <br />
             <BookResultList />
