@@ -28,7 +28,6 @@ const BookResultList = () => {
                             link={v.link}
                             />
                         )}
-                        <BookResult /> 
                     </div>     
                 </Col>
             </Row>

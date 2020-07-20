@@ -14,17 +14,19 @@ const BookResult = (props) => {
                                     <p className="text-center">Written By {props.authors}</p>
                                 </Col>
                                 {/* <Col xs="6"></Col> */}
-                                <Col xs="12">
-                                    <Button>View</Button>
-                                    <Button>Save</Button>
-                                </Col>
                             </Row>
                             <Row>
                                 <Col xs="3">
                                     <img src={props.image} alt="book photo"/>
                                 </Col>
                                 <Col xs="9">
-                                    <h1>TEXT</h1>
+                                    <p>{props.description ? props.description : "description unavaliable"}</p>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col xs="12">
+                                    <Button>View</Button>
+                                    <Button>Save</Button>
                                 </Col>
                             </Row>
                         </Container>
