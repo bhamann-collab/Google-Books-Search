@@ -25,8 +25,10 @@ const BookResult = (props) => {
                             </Row>
                             <Row>
                                 <Col xs="12">
-                                    <Button>View</Button>
-                                    <Button>Save</Button>
+                                    <div className="viewSaveContainer">
+                                        <Button href={props.link} className="m-1 btn-lg">View</Button>
+                                        <Button className="m-1 btn-lg">Save</Button>
+                                    </div>
                                 </Col>
                             </Row>
                         </Container>

@@ -40,3 +40,8 @@
     color: #dfe6e9;
     cursor: pointer;
 }
+
+.viewSaveContainer {
+    display: flex;
+    justify-content: center;
+}
