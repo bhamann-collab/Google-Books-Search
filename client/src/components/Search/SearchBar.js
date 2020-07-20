@@ -47,6 +47,11 @@ const SearchBar = () => {
         bookContext.booksDispatch({type: 'book-test', payload: options})
     }
 
+    //Avoid Google Chromes autofill input
+    const onFocus = event => {
+        event.target.setAttribute('autocomplete', 'off')
+     };
+
     return (
         <Container>
             <Row>
@@ -56,7 +61,7 @@ const SearchBar = () => {
                         <br />
                         <Form onSubmit={handleSubmit}>
                             <Label for="Book">Book</Label>
-                            <Input type="Book" onClick={() => setDisplay(!display)} name="Book" onChange={inputChange} placeholder="Search Book" id="bookValue" value={search}/>
+                            <Input type="Book" onFocus={onFocus} onClick={() => setDisplay(!display)} name="Book" onChange={inputChange} placeholder="Search Book" id="bookValue" value={search}/>
                             {display && (
                                 <div className="autoContainer">
                                     {options.map((v, i) => {
