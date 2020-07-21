@@ -20,7 +20,7 @@ const BookDisplayList = () => {
             <Row>
                 <Col>
                     <div className="bookResultListContainer p-3">
-                        <h3>Results</h3>
+                        <h3>Saved Books</h3>
                         {books.map((v, i) => 
                             <BookDisplay 
                             key={i} 
