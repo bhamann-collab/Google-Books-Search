@@ -7,6 +7,7 @@ const BookDisplay = (props) => {
     const deleteBook = () => {
         console.log(props.id)
         axios.delete(`http://localhost:5000/api/books/${props.id}`)
+        props.updateList()
     }
 
     return (

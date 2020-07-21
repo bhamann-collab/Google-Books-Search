@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Container, Row, Col } from 'reactstrap';
 import BookDisplay from './BookDisplay'
 import axios from 'axios';
@@ -7,6 +7,7 @@ const BookDisplayList = () => {
     const [books, setBooks] = useState([])
 
     useEffect(() => {
+        console.log("useeffect running")
         axios.get(`http://localhost:5000/api/books`)
         .then(res => {
             console.log(res.data)
@@ -14,6 +15,15 @@ const BookDisplayList = () => {
         })
         .catch(err => console.log(err))
     }, [])
+
+    const updateList = () => {
+        axios.get(`http://localhost:5000/api/books`)
+        .then(res => {
+            console.log(res.data)
+            setBooks(res.data)
+        })
+        .catch(err => console.log(err))
+    }
 
     return (
         <Container>
@@ -30,6 +40,7 @@ const BookDisplayList = () => {
                             image={v.image}
                             link={v.link}
                             id={v._id}
+                            updateList={updateList}
                             />
                         )}
                     </div>     
