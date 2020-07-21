@@ -29,6 +29,7 @@ const BookDisplayList = () => {
                             description={v.description}
                             image={v.image}
                             link={v.link}
+                            id={v._id}
                             />
                         )}
                     </div>     

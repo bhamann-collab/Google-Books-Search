@@ -1,7 +1,14 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
+import axios from 'axios';
 
 const BookDisplay = (props) => {
+
+    const deleteBook = () => {
+        console.log(props.id)
+        axios.delete(`http://localhost:5000/api/books/${props.id}`)
+    }
+
     return (
 <Container fluid>
             <Row>
@@ -28,7 +35,7 @@ const BookDisplay = (props) => {
                                 <Col xs="12">
                                     <div className="viewSaveContainer">
                                         <Button href={props.link} className="m-1 btn-lg">View</Button>
-                                        <Button className="m-1 btn-lg">Delete</Button>
+                                        <Button onClick={deleteBook} className="m-1 btn-lg">Delete</Button>
                                     </div>
                                 </Col>
                             </Row>

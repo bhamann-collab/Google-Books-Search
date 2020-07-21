@@ -15,8 +15,12 @@ router.post('/api/books', (req, res) => {
     book.save()
 });
 
-router.delete('api/books/:id', (req, res) => {
-    console.log('delete')
+router.delete('/api/books/:id', (req, res) => {
+    console.log(req.params)
+    Book.deleteOne({ _id:req.params.id }, function (err) {
+        if (err) console.log(err)
+    })
+    res.end()
 });
 
 module.exports = router;
