@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
+import { SocketContext } from '../../App'
 import { toast } from 'react-toastify';
-import axios from 'axios'
+import axios from 'axios';
 
 const BookResult = (props) => {
+    //Socket.io
+    const socketContext = useContext(SocketContext)
 
     const postBook = () => {
-        console.log(props)
         axios.post(`http://localhost:5000/api/books`, props)
         .then(res => {
             toast.success(`${props.title} has been added to Saved`)
+            socketContext.emit("savedBook", props.title)
         })
     }
 

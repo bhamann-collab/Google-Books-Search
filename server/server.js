@@ -20,6 +20,11 @@ io.on("connection", (client) => {
     })
 
     client.emit("FromAPI", "Hello")
+
+    client.on("savedBook", (data) => {
+        console.log(data)
+        client.broadcast.emit("alertSavedBook", data)
+    })
 })
 
 //Socketio setup------------------
