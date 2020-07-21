@@ -14,13 +14,14 @@ const io = socketIo(server);
 
 io.on("connection", (client) => {
     console.log("New client connected")
+
+    client.on("disconnect", () => {
+        console.log("Client disconnected")
+    })
+
+    client.emit("FromAPI", "Hello")
 })
 
-// const getApiAndEmit = socket => {
-//     const response = new Date();
-//     // Emitting a new message. Will be consumed by the client
-//     socket.emit("FromAPI", response)
-// }
 //Socketio setup------------------
 
 //Mongoose

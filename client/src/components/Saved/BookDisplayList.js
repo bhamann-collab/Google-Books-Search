@@ -7,7 +7,6 @@ const BookDisplayList = () => {
     const [books, setBooks] = useState([])
 
     useEffect(() => {
-        console.log("useeffect running")
         axios.get(`http://localhost:5000/api/books`)
         .then(res => {
             console.log(res.data)

@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import socketIOClient from "socket.io-client";
+import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const BookDisplay = (props) => {
-    const [response, setResponse] = useState("");
-
-    useEffect(() => {
-        const socket = socketIOClient(`http://localhost:5000`)
-        socket.on("FromAPI", data => {
-            setResponse(data)
-        });
-    }, []);
 
     const deleteBook = () => {
         axios.delete(`http://localhost:5000/api/books/${props.id}`)
@@ -24,7 +15,6 @@ const BookDisplay = (props) => {
 
     return (
         <>
-        <h1>{response}</h1>
         <Container fluid>
             <Row>
                 <Col>
