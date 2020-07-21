@@ -1,17 +1,29 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 
 const BookDisplay = (props) => {
 
     const deleteBook = () => {
-        console.log(props.id)
         axios.delete(`http://localhost:5000/api/books/${props.id}`)
-        props.updateList()
+        .then(() => {
+            props.updateList()
+            toast("Does it work", {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        })
     }
 
     return (
-<Container fluid>
+        <>
+        <Container fluid>
             <Row>
                 <Col>
                     <div className="bookResult">
@@ -45,6 +57,8 @@ const BookDisplay = (props) => {
                 </Col>
             </Row>
         </Container>
+        </>
+        
     )
 }
 
