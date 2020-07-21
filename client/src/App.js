@@ -17,9 +17,14 @@ export const SocketContext = React.createContext()
 const App = () => {
     const socket = socketIOClient("http://localhost:5000")
 
-        //When one client saves a book in the Saved list
+        //When one client saves a book in the Search list
         socket.on("alertSavedBook", (bookName) => {
             toast.success(`${bookName} has been added to Saved`)
+        })
+
+        //When one client deletes a book in the Saved list
+        socket.on("alertDeletedBook", (bookName) => {
+            toast.error(`${bookName} has been deleted from Saved`)
         })
 
     useEffect(() => {

@@ -25,6 +25,10 @@ io.on("connection", (client) => {
         console.log(data)
         client.broadcast.emit("alertSavedBook", data)
     })
+
+    client.on("deleteBook", (data) => {
+        client.broadcast.emit("alertDeletedBook", data)
+    })
 })
 
 //Socketio setup------------------

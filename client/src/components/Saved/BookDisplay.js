@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
+import { SocketContext } from '../../App'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const BookDisplay = (props) => {
+    //Socket.io
+    const socketContext = useContext(SocketContext)
 
     const deleteBook = () => {
         axios.delete(`http://localhost:5000/api/books/${props.id}`)
         .then(() => {
             props.updateList()
             toast.error(`${props.title} has been deleted from Saved`)
+            socketContext.emit("deleteBook", props.title)
         })
     }
 
