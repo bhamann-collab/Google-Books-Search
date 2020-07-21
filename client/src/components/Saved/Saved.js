@@ -1,9 +1,10 @@
 import React from 'react'
+import BookDisplayList from './BookDisplayList'
 
 const Saved = () => {
     return (
         <div>
-            <h1>Saved</h1>
+            <BookDisplayList />
         </div>
     )
 }
