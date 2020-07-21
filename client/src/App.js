@@ -17,6 +17,7 @@ const App = () => (
         <br />
         <Route path='/' exact component={Search} />
         <Route path='/Saved' component={Saved} />
+        {/* Easy way to show toast notification on site */}
         <ToastContainer />
     </Router>
 )

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import axios from 'axios';
 
 const BookDisplay = (props) => {
@@ -9,15 +9,7 @@ const BookDisplay = (props) => {
         axios.delete(`http://localhost:5000/api/books/${props.id}`)
         .then(() => {
             props.updateList()
-            toast("Does it work", {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            })
+            toast.error(`${props.title} has been deleted from Saved`)
         })
     }
 

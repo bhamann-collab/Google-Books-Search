@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col, Button } from 'reactstrap';
+import { toast } from 'react-toastify';
 import axios from 'axios'
 
 const BookResult = (props) => {
@@ -8,7 +9,7 @@ const BookResult = (props) => {
         console.log(props)
         axios.post(`http://localhost:5000/api/books`, props)
         .then(res => {
-            console.log(res)
+            toast.success(`${props.title} has been added to Saved`)
         })
     }
 
