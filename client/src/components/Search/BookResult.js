@@ -7,7 +7,7 @@ import axios from 'axios';
 const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
 
 const BookResult = (props) => {
-    //Socket.io
+    //Socket.io used
     const socketContext = useContext(SocketContext)
 
     const postBook = () => {
