@@ -4,12 +4,14 @@ import { SocketContext } from '../../App'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
+const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
+
 const BookDisplay = (props) => {
     //Socket.io
     const socketContext = useContext(SocketContext)
 
     const deleteBook = () => {
-        axios.delete(`http://localhost:5000/api/books/${props.id}`)
+        axios.delete(`${API_ENDPOINT}/api/books/${props.id}`)
         .then(() => {
             props.updateList()
             toast.error(`${props.title} has been deleted from Saved`)

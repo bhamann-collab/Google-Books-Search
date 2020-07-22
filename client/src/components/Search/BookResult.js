@@ -4,12 +4,14 @@ import { SocketContext } from '../../App'
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
+const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
+
 const BookResult = (props) => {
     //Socket.io
     const socketContext = useContext(SocketContext)
 
     const postBook = () => {
-        axios.post(`http://localhost:5000/api/books`, props)
+        axios.post(`${API_ENDPOINT}/api/books`, props)
         .then(res => {
             toast.success(`${props.title} has been added to Saved`)
             socketContext.emit("savedBook", props.title)
