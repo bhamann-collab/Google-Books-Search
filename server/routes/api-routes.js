@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../models/Books');
 
-router.get('/api/books', async (req, res) => {
+router.get('/api/books/get', async (req, res) => {
     const books = await Book.find()
     res.send(books)
 });
