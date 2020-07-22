@@ -3,11 +3,13 @@ import { Container, Row, Col } from 'reactstrap';
 import BookDisplay from './BookDisplay'
 import axios from 'axios';
 
+const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
+
 const BookDisplayList = () => {
     const [books, setBooks] = useState([])
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/books`)
+        axios.get(`${API_ENDPOINT}/api/books`)
         .then(res => {
             console.log(res.data)
             setBooks(res.data)
@@ -16,7 +18,7 @@ const BookDisplayList = () => {
     }, [])
 
     const updateList = () => {
-        axios.get(`http://localhost:5000/api/books`)
+        axios.get(`${API_ENDPOINT}/api/books`)
         .then(res => {
             console.log(res.data)
             setBooks(res.data)
