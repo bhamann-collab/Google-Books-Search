@@ -11,11 +11,13 @@ import BookNav from './components/BookNav/BookNav';
 import SearchTitle from './components/Search/SearchTitle'
 import 'react-toastify/dist/ReactToastify.css';
 
+const API_ENDPOINT = process.env.REACT_APP_ENDPOINT || 'http://localhost:5000'
+
 //useContext() with socket.io
 export const SocketContext = React.createContext()
 
 const App = () => {
-    const socket = socketIOClient("http://localhost:5000")
+    const socket = socketIOClient(API_ENDPOINT)
 
         //When one client saves a book in the Search list
         socket.on("alertSavedBook", (bookName) => {
