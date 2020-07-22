@@ -9,7 +9,7 @@ const BookDisplayList = () => {
     const [books, setBooks] = useState([])
 
     useEffect(() => {
-        axios.get(`${API_ENDPOINT}/api/books`)
+        axios.post(`${API_ENDPOINT}/api/books/get`)
         .then(res => {
             console.log(res.data)
             setBooks(res.data)
@@ -18,7 +18,7 @@ const BookDisplayList = () => {
     }, [])
 
     const updateList = () => {
-        axios.get(`${API_ENDPOINT}/api/books`)
+        axios.post(`${API_ENDPOINT}/api/books/get`)
         .then(res => {
             console.log(res.data)
             setBooks(res.data)
